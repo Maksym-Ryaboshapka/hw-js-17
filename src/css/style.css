@@ -1,0 +1,46 @@
+body {
+  padding: 0 0 35px 0;
+}
+
+img {
+  width: 350px;
+  height: 220px;
+
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+.list {
+  padding: 10px;
+  margin: 0 0 30px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+#load-images {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-radius: 6px;
+  width: 120px;
+  height: 40px;
+  margin: 0 auto;
+
+  background-color: #40e0d0;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: box-shadow 250ms ease;
+}
+
+#load-images:hover,
+#load-images:focus {
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.6);
+}

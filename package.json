@@ -2,8 +2,8 @@
   "name": "hw-js-17",
   "version": "1.0.0",
   "scripts": {
-    "start": "npx parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./",
+    "start": "npx parcel src/index.html --no-cache",
+    "build": "parcel build src/index.html --public-url ./ --no-cache",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },

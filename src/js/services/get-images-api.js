@@ -6,7 +6,7 @@ export class Images {
   static getImages() {
     const API = `https://pixabay.com/api?key=${
       this.#API_KEY
-    }&q=forest&callback=callbackFunction&page=${this.page}&per_page=${this.perPage}`;
+    }&q=forest&image_type=photo&callback=callbackFunction&page=${this.page}&per_page=${this.perPage}`;
 
     return new Promise((resolve) => {
       const script = document.createElement("script");

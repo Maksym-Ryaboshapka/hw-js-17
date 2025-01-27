@@ -4,20 +4,13 @@ export class Images {
   static #API_KEY = "48237262-7099298d94a1d2e5526ceb7b1";
 
   static getImages() {
-    const API = `https://pixabay.com/api?key=${
+    const API = `https://cors-anywhere.herokuapp.com/https://pixabay.com/api?key=${
       this.#API_KEY
-    }&q=forest&image_type=photo&callback=callbackFunction&page=${this.page}&per_page=${this.perPage}`;
+    }&q=forest&image_type=photo&page=${this.page}&per_page=${this.perPage}`;
 
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = API;
-
-      window.callbackFunction = (data) => {
-        resolve(data.hits);
-        document.body.removeChild(script);
-      };
-
-      document.body.appendChild(script);
-    });
+    return fetch(API)
+      .then((response) => response.json())
+      .then((data) => data.hits)
+      .catch((err) => console.error(err));
   }
 }

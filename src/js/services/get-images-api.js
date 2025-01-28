@@ -4,10 +4,10 @@ export class Images {
   static #API_KEY = "48237262-7099298d94a1d2e5526ceb7b1";
 
   static getImages() {
-    const API = `https://pixabay.com/api?key=${
-      this.#API_KEY
-    }&q=forest&image_type=photo&page=${this.page}&per_page=${this.perPage}`;
+    const API = `https://pixabay.com/api/?key=${this.#API_KEY}&page=${
+      this.page
+    }&per_page=${this.perPage}&q=forest`;
 
-    return fetch(API).then((res) => res.json()).then(data => data.hits);
+    return fetch(API).then((res) => res.json());
   }
 }

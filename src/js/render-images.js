@@ -8,9 +8,9 @@ class Page {
     function createItems() {
       Images.getImages()
         .then((res) => {
-          if (res.length < Images.perPage) loadBtn.remove();
+          if (res.hits.length < Images.perPage) loadBtn.remove();
 
-          res.forEach((imageObj) => {
+          res.hits.forEach((imageObj) => {
             const item = document.createElement("li");
 
             const img = document.createElement("img");

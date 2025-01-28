@@ -606,8 +606,8 @@ class Page {
         const loadBtn = document.querySelector("#load-images");
         function createItems() {
             (0, _getImagesApi.Images).getImages().then((res)=>{
-                if (res.length < (0, _getImagesApi.Images).perPage) loadBtn.remove();
-                res.forEach((imageObj)=>{
+                if (res.hits.length < (0, _getImagesApi.Images).perPage) loadBtn.remove();
+                res.hits.forEach((imageObj)=>{
                     const item = document.createElement("li");
                     const img = document.createElement("img");
                     img.src = imageObj.largeImageURL;
@@ -634,8 +634,8 @@ class Images {
     static perPage = 9;
     static #API_KEY = "48237262-7099298d94a1d2e5526ceb7b1";
     static getImages() {
-        const API = `https://pixabay.com/api?key=${this.#API_KEY}&q=forest&image_type=photo&page=${this.page}&per_page=${this.perPage}`;
-        return fetch(API).then((res)=>res.json()).then((data)=>data.hits);
+        const API = `https://pixabay.com/api/?key=${this.#API_KEY}&page=${this.page}&per_page=${this.perPage}&q=forest`;
+        return fetch(API).then((res)=>res.json());
     }
 }
 
